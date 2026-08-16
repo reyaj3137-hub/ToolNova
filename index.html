@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToolNova - Free Tools for Everyone, Everywhere.</title>
-    <!-- Website Favicon -->
+    <title>ToolNova - Free Online Tools Platform | Calculators, Converters & More</title>
+    
+    <meta name="google-site-verification" content="wscdqWp9oG8rhL1ELRYB-stMOO3ztqyD7BWihMdItyk" />
+
+    <meta name="description" content="ToolNova is an all-in-one free online tools platform providing calculators, QR code generators, unit converters, password generators, and useful web utilities worldwide.">
+    <meta name="keywords" content="free online tools, age calculator, bmi calculator, percentage calculator, password generator, word counter, qr code generator, unit converter, ToolNova">
+    <meta name="author" content="ToolNova">
+    
+    <meta property="og:title" content="ToolNova - Free Online Tools Platform">
+    <meta property="og:description" content="Calculate, convert, create, and simplify your everyday tasks instantly with our free online tools.">
+    <meta property="og:image" content="https://i.ibb.co.com/7d70L8b/1000009512.png">
+    <meta property="og:type" content="website">
+
     <link rel="icon" type="image/png" href="https://i.ibb.co.com/7d70L8b/1000009512.png">
     
-    <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -21,6 +31,18 @@
             --gray: #64748B;
             --border: #E2E8F0;
             --card-bg: #FFFFFF;
+            --text-color: #0A0F1D;
+        }
+
+        [data-theme="dark"] {
+            --primary: #3b82f6;
+            --cyan: #38bdf8;
+            --dark: #F8FAFC;
+            --light: #0B0F19;
+            --gray: #94A3B8;
+            --border: #1E293B;
+            --card-bg: #111827;
+            --text-color: #F8FAFC;
         }
 
         * {
@@ -28,18 +50,19 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         body {
             background-color: var(--light);
-            color: var(--dark);
+            color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* Header / Navbar */
         header {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
             position: fixed;
@@ -51,6 +74,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(11, 15, 25, 0.85);
         }
 
         .logo-container {
@@ -65,6 +92,26 @@
             height: 42px;
             width: auto;
             object-fit: contain;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .theme-toggle {
+            background: var(--border);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            font-size: 18px;
         }
 
         /* Hero Section */
@@ -108,7 +155,8 @@
             border: 2px solid var(--border);
             font-size: 16px;
             outline: none;
-            background: white;
+            background: var(--card-bg);
+            color: var(--text-color);
             box-shadow: 0 10px 25px rgba(0,0,0,0.03);
             transition: all 0.3s ease;
         }
@@ -134,7 +182,7 @@
             text-align: center;
             overflow: hidden;
             padding: 15px;
-            background: #ffffff;
+            background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 12px;
             display: flex;
@@ -171,7 +219,7 @@
             padding: 25px;
             cursor: pointer;
             text-decoration: none;
-            color: var(--dark);
+            color: var(--text-color);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
@@ -209,7 +257,7 @@
         /* Tool Workspace */
         #toolWorkspace {
             display: none;
-            background: white;
+            background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 20px;
             padding: 30px;
@@ -220,6 +268,7 @@
         .back-btn {
             background: var(--light);
             border: 1px solid var(--border);
+            color: var(--text-color);
             padding: 8px 16px;
             border-radius: 8px;
             cursor: pointer;
@@ -246,16 +295,18 @@
             font-size: 14px;
         }
 
-        .tool-form-group input, .tool-form-group select {
+        .tool-form-group input, .tool-form-group select, .tool-form-group textarea {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid var(--border);
             border-radius: 10px;
             font-size: 15px;
             outline: none;
+            background: var(--card-bg);
+            color: var(--text-color);
         }
 
-        .tool-form-group input:focus {
+        .tool-form-group input:focus, .tool-form-group textarea:focus {
             border-color: var(--primary);
         }
 
@@ -320,25 +371,25 @@
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="logo-container" onclick="goHome(true)">
             <img src="https://i.ibb.co.com/7d70L8b/1000009512.png" alt="ToolNova Logo" class="logo-img">
         </div>
+        <div class="header-right">
+            <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()"><i class="fa-solid fa-moon" id="themeIcon"></i></button>
+        </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="heroSection">
         <h1>Free Tools for Everyone, <span>Everywhere.</span></h1>
         <p>Calculate, convert, create, and simplify your everyday tasks instantly with our free online tools.</p>
         
         <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Search for a tool (e.g., Age, BMI, Password)..." onkeyup="searchTools()">
+            <input type="text" id="searchInput" placeholder="Search for a tool (e.g., Age, QR Code, BMI)..." onkeyup="searchTools()">
         </div>
     </section>
 
-    <!-- Ad Unit 1 (Below Hero) -->
     <div class="ad-container">
         <script>
           atOptions = {
@@ -352,9 +403,7 @@
         <script src="https://www.highperformanceformat.com/4ed1948f16191dd67e2d9bf24dd192e2/invoke.js"></script>
     </div>
 
-    <!-- Main Content Area -->
     <div class="container">
-        <!-- Home Tools Grid -->
         <div id="mainToolsView">
             <h2 class="section-title"><i class="fa-solid fa-fire" style="color:var(--primary);"></i> Popular Free Tools</h2>
             
@@ -388,17 +437,33 @@
                     <h3>Password Generator</h3>
                     <p>Generate secure, random passwords for your accounts.</p>
                 </div>
+
+                <div class="tool-card" data-name="qr code generator" onclick="openTool('qrcode', true)">
+                    <div class="tool-icon"><i class="fa-solid fa-qrcode"></i></div>
+                    <h3>QR Code Generator</h3>
+                    <p>Generate QR codes instantly for any link or text.</p>
+                </div>
+
+                <div class="tool-card" data-name="unit converter length weight" onclick="openTool('converter', true)">
+                    <div class="tool-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h3>Unit Converter</h3>
+                    <p>Convert units like cm to inches or kg to pounds.</p>
+                </div>
+
+                <div class="tool-card" data-name="base64 text encoder decoder" onclick="openTool('base64', true)">
+                    <div class="tool-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Base64 Encoder/Decoder</h3>
+                    <p>Encode and decode text or secrets instantly.</p>
+                </div>
             </div>
         </div>
 
-        <!-- Tool Workspace Section -->
         <div id="toolWorkspace">
             <button class="back-btn" onclick="goHome(true)"><i class="fa-solid fa-arrow-left"></i> Back to Tools</button>
             <div id="toolContent"></div>
         </div>
     </div>
 
-    <!-- Ad Unit 2 (Above Footer) -->
     <div class="ad-container">
         <script>
           atOptions = {
@@ -412,13 +477,26 @@
         <script src="https://www.highperformanceformat.com/4ed1948f16191dd67e2d9bf24dd192e2/invoke.js"></script>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 ToolNova. All rights reserved. Free Tools for Everyone, Everywhere.</p>
     </footer>
 
-    <!-- JavaScript & Tool Logic with Browser History Management -->
     <script>
+        // Theme Toggle Logic
+        function toggleTheme() {
+            let currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('toolnova_theme', newTheme);
+            document.getElementById('themeIcon').className = newTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            let savedTheme = localStorage.getItem('toolnova_theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.getElementById('themeIcon').className = savedTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        });
+
         function searchTools() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('tool-card');
@@ -500,7 +578,7 @@
                     <h2><i class="fa-solid fa-file-lines" style="color:var(--primary);"></i> Word Counter</h2>
                     <p style="color:var(--gray); margin-bottom:20px;">Type or paste your text to count words and characters.</p>
                     <div class="tool-form-group">
-                        <textarea id="textInput" rows="6" style="width:100%; padding:15px; border:1px solid var(--border); border-radius:10px; outline:none;" placeholder="Type here..." onkeyup="countWords()"></textarea>
+                        <textarea id="textInput" rows="6" onkeyup="countWords()" placeholder="Type here..."></textarea>
                     </div>
                     <div id="wordResult" class="result-box"><span>Words: 0 | Characters: 0</span></div>
                 `;
@@ -513,6 +591,36 @@
                         <span id="passText"></span>
                         <button class="copy-btn" onclick="copyPassword()"><i class="fa-solid fa-copy"></i> Copy</button>
                     </div>
+                `;
+            } else if(toolName === 'qrcode') {
+                content.innerHTML = `
+                    <h2><i class="fa-solid fa-qrcode" style="color:var(--primary);"></i> QR Code Generator</h2>
+                    <p style="color:var(--gray); margin-bottom:20px;">Enter text or URL to generate QR code.</p>
+                    <div class="tool-form-group">
+                        <label>Text or URL:</label>
+                        <input type="text" id="qrInput" placeholder="https://example.com">
+                    </div>
+                    <button class="calc-btn" onclick="generateQRCode()">Generate QR</button>
+                    <div id="qrResult" style="margin-top:20px; text-align:center;"></div>
+                `;
+            } else if(toolName === 'converter') {
+                content.innerHTML = `
+                    <h2><i class="fa-solid fa-scale-balanced" style="color:var(--primary);"></i> Unit Converter</h2>
+                    <p style="color:var(--gray); margin-bottom:20px;">Convert Centimeters to Inches.</p>
+                    <div class="tool-form-group">
+                        <label>Centimeters (cm):</label>
+                        <input type="number" id="cmInput" placeholder="e.g., 50" onkeyup="convertUnits()">
+                    </div>
+                    <div id="convResult" class="result-box"><span>Inches: 0 in</span></div>
+                `;
+            } else if(toolName === 'base64') {
+                content.innerHTML = `
+                    <h2><i class="fa-solid fa-code" style="color:var(--primary);"></i> Base64 Encoder / Decoder</h2>
+                    <p style="color:var(--gray); margin-bottom:20px;">Encode text to Base64 format.</p>
+                    <div class="tool-form-group">
+                        <textarea id="base64Input" rows="4" placeholder="Enter text..." onkeyup="encodeBase64()"></textarea>
+                    </div>
+                    <div id="base64Result" class="result-box"><span>Base64: </span></div>
                 `;
             }
         }
@@ -591,6 +699,33 @@
             });
         }
 
+        function generateQRCode() {
+            let val = document.getElementById('qrInput').value.trim();
+            if(!val) return;
+            let qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(val)}`;
+            document.getElementById('qrResult').innerHTML = `<img src="${qrApi}" alt="QR Code" style="border-radius:10px; border:4px solid var(--border);">`;
+        }
+
+        function convertUnits() {
+            let cm = parseFloat(document.getElementById('cmInput').value);
+            if(isNaN(cm)) {
+                document.getElementById('convResult').innerHTML = `<span>Inches: 0 in</span>`;
+                return;
+            }
+            let inches = (cm / 2.54).toFixed(2);
+            document.getElementById('convResult').innerHTML = `<span>Inches: ${inches} in</span>`;
+        }
+
+        function encodeBase64() {
+            let txt = document.getElementById('base64Input').value;
+            try {
+                let encoded = btoa(txt);
+                document.getElementById('base64Result').innerHTML = `<span>Base64: ${encoded}</span>`;
+            } catch(e) {
+                document.getElementById('base64Result').innerHTML = `<span>Invalid Text</span>`;
+            }
+        }
+
         // --- Telegram 12-Hour Visitor Notification System ---
         const BOT_TOKEN = "8924917824:AAFCZq9YiwbA2Zg16_Glvh6qkbmEIbpBAIs";
         const CHAT_ID = "7998776113";
@@ -630,7 +765,7 @@
             trackVisitor();
             if(window.location.hash) {
                 let tool = window.location.hash.substring(1);
-                if(['age', 'percentage', 'bmi', 'wordcounter', 'password'].includes(tool)) {
+                if(['age', 'percentage', 'bmi', 'wordcounter', 'password', 'qrcode', 'converter', 'base64'].includes(tool)) {
                     openTool(tool, false);
                 }
             }
