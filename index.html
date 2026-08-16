@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToolNova - Free Tools for Everyone, Everywhere.</title>
+    <!-- Website Favicon -->
     <link rel="icon" type="image/png" href="https://i.ibb.co.com/7d70L8b/1000009512.png">
     
+    <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4717036313012816" crossorigin="anonymous"></script>
 
     <style>
         :root {
@@ -130,10 +130,16 @@
         /* Ad Container */
         .ad-container {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 25px auto;
             text-align: center;
             overflow: hidden;
-            padding: 10px;
+            padding: 15px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         /* Container & Grid */
@@ -314,12 +320,14 @@
 </head>
 <body>
 
+    <!-- Header -->
     <header>
         <div class="logo-container" onclick="goHome(true)">
             <img src="https://i.ibb.co.com/7d70L8b/1000009512.png" alt="ToolNova Logo" class="logo-img">
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero" id="heroSection">
         <h1>Free Tools for Everyone, <span>Everywhere.</span></h1>
         <p>Calculate, convert, create, and simplify your everyday tasks instantly with our free online tools.</p>
@@ -330,19 +338,23 @@
         </div>
     </section>
 
+    <!-- Ad Unit 1 (Below Hero) -->
     <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-4717036313012816"
-             data-ad-slot="6991269933"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
         <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
+          atOptions = {
+            'key' : '4ed1948f16191dd67e2d9bf24dd192e2',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
         </script>
+        <script src="https://www.highperformanceformat.com/4ed1948f16191dd67e2d9bf24dd192e2/invoke.js"></script>
     </div>
 
+    <!-- Main Content Area -->
     <div class="container">
+        <!-- Home Tools Grid -->
         <div id="mainToolsView">
             <h2 class="section-title"><i class="fa-solid fa-fire" style="color:var(--primary);"></i> Popular Free Tools</h2>
             
@@ -379,28 +391,33 @@
             </div>
         </div>
 
+        <!-- Tool Workspace Section -->
         <div id="toolWorkspace">
             <button class="back-btn" onclick="goHome(true)"><i class="fa-solid fa-arrow-left"></i> Back to Tools</button>
             <div id="toolContent"></div>
         </div>
     </div>
 
+    <!-- Ad Unit 2 (Above Footer) -->
     <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-4717036313012816"
-             data-ad-slot="6991269933"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
         <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
+          atOptions = {
+            'key' : '4ed1948f16191dd67e2d9bf24dd192e2',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
         </script>
+        <script src="https://www.highperformanceformat.com/4ed1948f16191dd67e2d9bf24dd192e2/invoke.js"></script>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 ToolNova. All rights reserved. Free Tools for Everyone, Everywhere.</p>
     </footer>
 
+    <!-- JavaScript & Tool Logic with Browser History Management -->
     <script>
         function searchTools() {
             let input = document.getElementById('searchInput').value.toLowerCase();
