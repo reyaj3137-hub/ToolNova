@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolNova - Free Tools for Everyone, Everywhere.</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4717036313012816" crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --primary: #0052FF;
+            --cyan: #00D2FF;
+            --purple: #7928CA;
+            --dark: #0A0F1D;
+            --light: #F8FAFC;
+            --gray: #64748B;
+            --border: #E2E8F0;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header / Navbar */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--cyan));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(0, 82, 255, 0.3);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 5% 80px 5%;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(0, 82, 255, 0.05) 0%, rgba(248, 250, 252, 0) 100%);
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 54px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Search Box */
+        .search-box {
+            max-width: 550px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 18px 20px 18px 55px;
+            border-radius: 50px;
+            border: 2px solid var(--border);
+            font-size: 16px;
+            outline: none;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 82, 255, 0.15);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 18px;
+        }
+
+        /* Ad Container */
+        .ad-container {
+            max-width: 900px;
+            margin: 30px auto;
+            text-align: center;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        /* Tools Section */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 5%;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            text-decoration: none;
+            color: var(--dark);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 82, 255, 0.1);
+        }
+
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 82, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 22px;
+        }
+
+        .tool-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .tool-card p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: #94A3B8;
+            font-size: 14px;
+        }
+
+        @media(max-width: 768px) {
+            .hero {
+                padding-top: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo-container">
+            <div class="logo-icon"><i class="fa-solid fa-toolbox"></i></div>
+            <span class="logo-text">ToolNova</span>
+        </a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Free Tools for Everyone, <span>Everywhere.</span></h1>
+        <p>Calculate, convert, create, and simplify your everyday tasks instantly with our free online tools.</p>
+        
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search for a tool (e.g., Age, BMI, PDF)..." onkeyup="searchTools()">
+        </div>
+    </section>
+
+    <!-- Ad Unit 1: Below Hero (Live Google AdSense) -->
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4717036313012816"
+             data-ad-slot="6991269933"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- Main Tools Grid -->
+    <div class="container">
+        <h2 class="section-title"><i class="fa-solid fa-fire text-primary"></i> Popular Free Tools</h2>
+        
+        <div class="tools-grid" id="toolsGrid">
+            <a href="#" class="tool-card" data-name="age calculator date">
+                <div class="tool-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                <h3>Age Calculator</h3>
+                <p>Calculate exact age in years, months, and days instantly.</p>
+            </a>
+
+            <a href="#" class="tool-card" data-name="percentage calculator math">
+                <div class="tool-icon"><i class="fa-solid fa-percent"></i></div>
+                <h3>Percentage Calculator</h3>
+                <p>Easily calculate percentage, increases, and decreases.</p>
+            </a>
+
+            <a href="#" class="tool-card" data-name="bmi health calculator">
+                <div class="tool-icon"><i class="fa-solid fa-weight-scale"></i></div>
+                <h3>BMI Calculator</h3>
+                <p>Check your Body Mass Index and stay healthy.</p>
+            </a>
+
+            <a href="#" class="tool-card" data-name="gpa cgpa student tool">
+                <div class="tool-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3>GPA / CGPA Calculator</h3>
+                <p>Calculate your semester or final grade point average.</p>
+            </a>
+
+            <a href="#" class="tool-card" data-name="discount shopping calculator">
+                <div class="tool-icon"><i class="fa-solid fa-tags"></i></div>
+                <h3>Discount Calculator</h3>
+                <p>Find out final prices and savings during sales.</p>
+            </a>
+
+            <a href="#" class="tool-card" data-name="loan emi finance calculator">
+                <div class="tool-icon"><i class="fa-solid fa-calculator"></i></div>
+                <h3>Loan / EMI Calculator</h3>
+                <p>Calculate your monthly loan payments and interest.</p>
+            </a>
+
+            <a href="#" class="tool-card" data-name="image compressor resizer">
+                <div class="tool-icon"><i class="fa-solid fa-image"></i></div>
+                <h3>Image Compressor</h3>
+                <p>Reduce image file size quickly without losing quality.</p>
+            </a>
+
+            <a href="#" class="tool-card" data-name="word counter text tool">
+                <div class="tool-icon"><i class="fa-solid fa-file-lines"></i></div>
+                <h3>Word Counter</h3>
+                <p>Count words, characters, and reading time in real-time.</p>
+            </a>
+
+            <a href="#" class="tool-card" data-name="qr code generator">
+                <div class="tool-icon"><i class="fa-solid fa-qrcode"></i></div>
+                <h3>QR Code Generator</h3>
+                <p>Create custom QR codes for links, text, and wifi.</p>
+            </a>
+
+            <a href="#" class="tool-card" data-name="password generator security">
+                <div class="tool-icon"><i class="fa-solid fa-key"></i></div>
+                <h3>Password Generator</h3>
+                <p>Generate secure, random passwords for your accounts.</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Ad Unit 2: Above Footer (Live Google AdSense) -->
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4717036313012816"
+             data-ad-slot="6991269933"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ToolNova. All rights reserved. Free Tools for Everyone, Everywhere.</p>
+    </footer>
+
+    <!-- JavaScript & Telegram Bot Integration Script -->
+    <script>
+        // Real-time tool search function
+        function searchTools() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('tool-card');
+            
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].getAttribute('data-name');
+                if (name.includes(input)) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        // --- Telegram 12-Hour Visitor Notification System ---
+        const BOT_TOKEN = "8924917824:AAFCZq9YiwbA2Zg16_Glvh6qkbmEIbpBAIs";
+        const CHAT_ID = "7998776113";
+
+        function trackVisitor() {
+            let currentCount = parseInt(localStorage.getItem('toolnova_visits') || '0');
+            currentCount++;
+            localStorage.setItem('toolnova_visits', currentCount);
+
+            let lastReportTime = parseInt(localStorage.getItem('toolnova_last_time') || '0');
+            let currentTime = new Date().getTime();
+            let twelveHours = 12 * 60 * 60 * 1000; 
+
+            if (lastReportTime === 0) {
+                localStorage.setItem('toolnova_last_time', currentTime);
+            } else if (currentTime - lastReportTime >= twelveHours) {
+                sendTelegramReport(currentCount);
+            }
+        }
+
+        function sendTelegramReport(count) {
+            let message = `📊 *ToolNova 12-Hour Visitor Report*\n\n👥 Total Visitors in last 12 hours: *${count}*\n🌐 Status: Online & Active`;
+            let url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if(data.ok) {
+                        localStorage.setItem('toolnova_visits', '0');
+                        localStorage.setItem('toolnova_last_time', new Date().getTime());
+                    }
+                })
+                .catch(error => console.log('Telegram Error:', error));
+        }
+
+        window.onload = function() {
+            trackVisitor();
+        };
+    </script>
+</body>
+  </html>
