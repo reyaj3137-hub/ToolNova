@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToolNova - Free Tools for Everyone, Everywhere.</title>
-    <!-- Website Favicon (Using your logo) -->
     <link rel="icon" type="image/png" href="https://i.ibb.co.com/7d70L8b/1000009512.png">
     
-    <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google AdSense Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4717036313012816" crossorigin="anonymous"></script>
 
     <style>
@@ -170,7 +167,6 @@
             text-decoration: none;
             color: var(--dark);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
             display: flex;
             flex-direction: column;
             gap: 12px;
@@ -281,6 +277,24 @@
             border-radius: 8px;
             font-size: 16px;
             font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .copy-btn:hover {
+            background: #0040dd;
         }
 
         /* Footer */
@@ -300,14 +314,12 @@
 </head>
 <body>
 
-    <!-- Header -->
     <header>
-        <div class="logo-container" onclick="goHome()">
+        <div class="logo-container" onclick="goHome(true)">
             <img src="https://i.ibb.co.com/7d70L8b/1000009512.png" alt="ToolNova Logo" class="logo-img">
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="heroSection">
         <h1>Free Tools for Everyone, <span>Everywhere.</span></h1>
         <p>Calculate, convert, create, and simplify your everyday tasks instantly with our free online tools.</p>
@@ -318,7 +330,6 @@
         </div>
     </section>
 
-    <!-- Ad Unit 1 -->
     <div class="ad-container">
         <ins class="adsbygoogle"
              style="display:block"
@@ -331,38 +342,36 @@
         </script>
     </div>
 
-    <!-- Main Content Area -->
     <div class="container">
-        <!-- Home Tools Grid -->
         <div id="mainToolsView">
             <h2 class="section-title"><i class="fa-solid fa-fire" style="color:var(--primary);"></i> Popular Free Tools</h2>
             
             <div class="tools-grid" id="toolsGrid">
-                <div class="tool-card" data-name="age calculator date" onclick="openTool('age')">
+                <div class="tool-card" data-name="age calculator date" onclick="openTool('age', true)">
                     <div class="tool-icon"><i class="fa-solid fa-cake-candles"></i></div>
                     <h3>Age Calculator</h3>
                     <p>Calculate exact age in years, months, and days instantly.</p>
                 </div>
 
-                <div class="tool-card" data-name="percentage calculator math" onclick="openTool('percentage')">
+                <div class="tool-card" data-name="percentage calculator math" onclick="openTool('percentage', true)">
                     <div class="tool-icon"><i class="fa-solid fa-percent"></i></div>
                     <h3>Percentage Calculator</h3>
                     <p>Easily calculate percentage, increases, and decreases.</p>
                 </div>
 
-                <div class="tool-card" data-name="bmi health calculator" onclick="openTool('bmi')">
+                <div class="tool-card" data-name="bmi health calculator" onclick="openTool('bmi', true)">
                     <div class="tool-icon"><i class="fa-solid fa-weight-scale"></i></div>
                     <h3>BMI Calculator</h3>
                     <p>Check your Body Mass Index and stay healthy.</p>
                 </div>
 
-                <div class="tool-card" data-name="word counter text tool" onclick="openTool('wordcounter')">
+                <div class="tool-card" data-name="word counter text tool" onclick="openTool('wordcounter', true)">
                     <div class="tool-icon"><i class="fa-solid fa-file-lines"></i></div>
                     <h3>Word Counter</h3>
                     <p>Count words, characters, and reading time in real-time.</p>
                 </div>
 
-                <div class="tool-card" data-name="password generator security" onclick="openTool('password')">
+                <div class="tool-card" data-name="password generator security" onclick="openTool('password', true)">
                     <div class="tool-icon"><i class="fa-solid fa-key"></i></div>
                     <h3>Password Generator</h3>
                     <p>Generate secure, random passwords for your accounts.</p>
@@ -370,14 +379,12 @@
             </div>
         </div>
 
-        <!-- Tool Workspace Section -->
         <div id="toolWorkspace">
-            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Back to Tools</button>
+            <button class="back-btn" onclick="goHome(true)"><i class="fa-solid fa-arrow-left"></i> Back to Tools</button>
             <div id="toolContent"></div>
         </div>
     </div>
 
-    <!-- Ad Unit 2 -->
     <div class="ad-container">
         <ins class="adsbygoogle"
              style="display:block"
@@ -390,17 +397,14 @@
         </script>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 ToolNova. All rights reserved. Free Tools for Everyone, Everywhere.</p>
     </footer>
 
-    <!-- JavaScript & Tool Logic -->
     <script>
         function searchTools() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('tool-card');
-            
             for (let i = 0; i < cards.length; i++) {
                 let name = cards[i].getAttribute('data-name');
                 if (name.includes(input)) {
@@ -411,19 +415,26 @@
             }
         }
 
-        function goHome() {
+        function goHome(pushState = true) {
             document.getElementById('toolWorkspace').style.display = "none";
             document.getElementById('mainToolsView').style.display = "block";
             document.getElementById('heroSection').style.display = "block";
+            if (pushState && location.hash) {
+                history.pushState({page: 'home'}, '', window.location.pathname);
+            }
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        function openTool(toolName) {
+        function openTool(toolName, pushState = true) {
             document.getElementById('mainToolsView').style.display = "none";
             document.getElementById('heroSection').style.display = "none";
             let workspace = document.getElementById('toolWorkspace');
             let content = document.getElementById('toolContent');
             workspace.style.display = "block";
+            
+            if (pushState) {
+                history.pushState({page: 'tool', name: toolName}, '', '#' + toolName);
+            }
             window.scrollTo({top: 0, behavior: 'smooth'});
 
             if(toolName === 'age') {
@@ -474,17 +485,29 @@
                     <div class="tool-form-group">
                         <textarea id="textInput" rows="6" style="width:100%; padding:15px; border:1px solid var(--border); border-radius:10px; outline:none;" placeholder="Type here..." onkeyup="countWords()"></textarea>
                     </div>
-                    <div id="wordResult" class="result-box">Words: 0 | Characters: 0</div>
+                    <div id="wordResult" class="result-box"><span>Words: 0 | Characters: 0</span></div>
                 `;
             } else if(toolName === 'password') {
                 content.innerHTML = `
                     <h2><i class="fa-solid fa-key" style="color:var(--primary);"></i> Password Generator</h2>
                     <p style="color:var(--gray); margin-bottom:20px;">Generate a secure random password.</p>
                     <button class="calc-btn" onclick="generatePassword()">Generate Password</button>
-                    <div id="passResult" class="result-box" style="display:none; word-break:break-all;"></div>
+                    <div id="passResult" class="result-box" style="display:none;">
+                        <span id="passText"></span>
+                        <button class="copy-btn" onclick="copyPassword()"><i class="fa-solid fa-copy"></i> Copy</button>
+                    </div>
                 `;
             }
         }
+
+        // Handle Browser Back Button smoothly
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.page === 'tool') {
+                openTool(event.state.name, false);
+            } else {
+                goHome(false);
+            }
+        });
 
         function calculateAge() {
             let dob = document.getElementById('dob').value;
@@ -497,8 +520,8 @@
             if (days < 0) { months--; days += 30; }
             if (months < 0) { years--; months += 12; }
             let res = document.getElementById('ageResult');
-            res.style.display = "block";
-            res.innerHTML = `Your Age: ${years} Years, ${months} Months, ${days} Days`;
+            res.style.display = "flex";
+            res.innerHTML = `<span>Your Age: ${years} Years, ${months} Months, ${days} Days</span>`;
         }
 
         function calculatePercentage() {
@@ -507,8 +530,8 @@
             if(isNaN(p) || isNaN(t)) return;
             let ans = (p * t) / 100;
             let res = document.getElementById('percResult');
-            res.style.display = "block";
-            res.innerHTML = `Result: ${ans}`;
+            res.style.display = "flex";
+            res.innerHTML = `<span>Result: ${ans}</span>`;
         }
 
         function calculateBMI() {
@@ -522,15 +545,15 @@
             else if(bmi < 30) status = "Overweight";
             else status = "Obese";
             let res = document.getElementById('bmiResult');
-            res.style.display = "block";
-            res.innerHTML = `Your BMI is ${bmi} (${status})`;
+            res.style.display = "flex";
+            res.innerHTML = `<span>Your BMI is ${bmi} (${status})</span>`;
         }
 
         function countWords() {
             let text = document.getElementById('textInput').value.trim();
             let words = text === "" ? 0 : text.split(/\s+/).length;
             let chars = text.length;
-            document.getElementById('wordResult').innerHTML = `Words: ${words} | Characters: ${chars}`;
+            document.getElementById('wordResult').innerHTML = `<span>Words: ${words} | Characters: ${chars}</span>`;
         }
 
         function generatePassword() {
@@ -540,8 +563,15 @@
                 pass += chars.charAt(Math.floor(Math.random() * chars.length));
             }
             let res = document.getElementById('passResult');
-            res.style.display = "block";
-            res.innerHTML = `Generated Password: <b>${pass}</b>`;
+            res.style.display = "flex";
+            document.getElementById('passText').innerHTML = `Password: <b>${pass}</b>`;
+        }
+
+        function copyPassword() {
+            let passText = document.getElementById('passText').innerText.replace('Password: ', '');
+            navigator.clipboard.writeText(passText).then(() => {
+                alert('Password copied to clipboard!');
+            });
         }
 
         // --- Telegram 12-Hour Visitor Notification System ---
@@ -581,6 +611,12 @@
 
         window.onload = function() {
             trackVisitor();
+            if(window.location.hash) {
+                let tool = window.location.hash.substring(1);
+                if(['age', 'percentage', 'bmi', 'wordcounter', 'password'].includes(tool)) {
+                    openTool(tool, false);
+                }
+            }
         };
     </script>
 </body>
