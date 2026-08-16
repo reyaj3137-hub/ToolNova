@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToolNova - Free Tools for Everyone, Everywhere.</title>
+    <!-- Website Favicon (Using your logo) -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co.com/7d70L8b/1000009512.png">
+    
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -47,7 +50,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 15px 5%;
+            padding: 12px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -56,34 +59,20 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
+            cursor: pointer;
         }
 
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--cyan));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            box-shadow: 0 4px 12px rgba(0, 82, 255, 0.3);
-        }
-
-        .logo-text {
-            font-size: 24px;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .logo-img {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
         }
 
         /* Hero Section */
         .hero {
-            padding: 160px 5% 80px 5%;
+            padding: 160px 5% 60px 5%;
             text-align: center;
             background: linear-gradient(180deg, rgba(0, 82, 255, 0.05) 0%, rgba(248, 250, 252, 0) 100%);
         }
@@ -144,17 +133,17 @@
         /* Ad Container */
         .ad-container {
             max-width: 900px;
-            margin: 30px auto;
+            margin: 20px auto;
             text-align: center;
             overflow: hidden;
             padding: 10px;
         }
 
-        /* Tools Section */
+        /* Container & Grid */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 5%;
+            padding: 20px 5% 60px 5%;
         }
 
         .section-title {
@@ -177,6 +166,7 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 25px;
+            cursor: pointer;
             text-decoration: none;
             color: var(--dark);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -214,6 +204,85 @@
             color: var(--gray);
         }
 
+        /* Tool Workspace */
+        #toolWorkspace {
+            display: none;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .back-btn {
+            background: var(--light);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            background: var(--border);
+        }
+
+        .tool-form-group {
+            margin-bottom: 20px;
+        }
+
+        .tool-form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .tool-form-group input, .tool-form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .tool-form-group input:focus {
+            border-color: var(--primary);
+        }
+
+        .calc-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #0040dd;
+        }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 15px 20px;
+            background: rgba(0, 82, 255, 0.05);
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
         /* Footer */
         footer {
             background: var(--dark);
@@ -227,36 +296,29 @@
             color: #94A3B8;
             font-size: 14px;
         }
-
-        @media(max-width: 768px) {
-            .hero {
-                padding-top: 130px;
-            }
-        }
     </style>
 </head>
 <body>
 
     <!-- Header -->
     <header>
-        <a href="#" class="logo-container">
-            <div class="logo-icon"><i class="fa-solid fa-toolbox"></i></div>
-            <span class="logo-text">ToolNova</span>
-        </a>
+        <div class="logo-container" onclick="goHome()">
+            <img src="https://i.ibb.co.com/7d70L8b/1000009512.png" alt="ToolNova Logo" class="logo-img">
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="heroSection">
         <h1>Free Tools for Everyone, <span>Everywhere.</span></h1>
         <p>Calculate, convert, create, and simplify your everyday tasks instantly with our free online tools.</p>
         
         <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Search for a tool (e.g., Age, BMI, PDF)..." onkeyup="searchTools()">
+            <input type="text" id="searchInput" placeholder="Search for a tool (e.g., Age, BMI, Password)..." onkeyup="searchTools()">
         </div>
     </section>
 
-    <!-- Ad Unit 1: Below Hero (Live Google AdSense) -->
+    <!-- Ad Unit 1 -->
     <div class="ad-container">
         <ins class="adsbygoogle"
              style="display:block"
@@ -269,74 +331,53 @@
         </script>
     </div>
 
-    <!-- Main Tools Grid -->
+    <!-- Main Content Area -->
     <div class="container">
-        <h2 class="section-title"><i class="fa-solid fa-fire text-primary"></i> Popular Free Tools</h2>
-        
-        <div class="tools-grid" id="toolsGrid">
-            <a href="#" class="tool-card" data-name="age calculator date">
-                <div class="tool-icon"><i class="fa-solid fa-cake-candles"></i></div>
-                <h3>Age Calculator</h3>
-                <p>Calculate exact age in years, months, and days instantly.</p>
-            </a>
+        <!-- Home Tools Grid -->
+        <div id="mainToolsView">
+            <h2 class="section-title"><i class="fa-solid fa-fire" style="color:var(--primary);"></i> Popular Free Tools</h2>
+            
+            <div class="tools-grid" id="toolsGrid">
+                <div class="tool-card" data-name="age calculator date" onclick="openTool('age')">
+                    <div class="tool-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                    <h3>Age Calculator</h3>
+                    <p>Calculate exact age in years, months, and days instantly.</p>
+                </div>
 
-            <a href="#" class="tool-card" data-name="percentage calculator math">
-                <div class="tool-icon"><i class="fa-solid fa-percent"></i></div>
-                <h3>Percentage Calculator</h3>
-                <p>Easily calculate percentage, increases, and decreases.</p>
-            </a>
+                <div class="tool-card" data-name="percentage calculator math" onclick="openTool('percentage')">
+                    <div class="tool-icon"><i class="fa-solid fa-percent"></i></div>
+                    <h3>Percentage Calculator</h3>
+                    <p>Easily calculate percentage, increases, and decreases.</p>
+                </div>
 
-            <a href="#" class="tool-card" data-name="bmi health calculator">
-                <div class="tool-icon"><i class="fa-solid fa-weight-scale"></i></div>
-                <h3>BMI Calculator</h3>
-                <p>Check your Body Mass Index and stay healthy.</p>
-            </a>
+                <div class="tool-card" data-name="bmi health calculator" onclick="openTool('bmi')">
+                    <div class="tool-icon"><i class="fa-solid fa-weight-scale"></i></div>
+                    <h3>BMI Calculator</h3>
+                    <p>Check your Body Mass Index and stay healthy.</p>
+                </div>
 
-            <a href="#" class="tool-card" data-name="gpa cgpa student tool">
-                <div class="tool-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <h3>GPA / CGPA Calculator</h3>
-                <p>Calculate your semester or final grade point average.</p>
-            </a>
+                <div class="tool-card" data-name="word counter text tool" onclick="openTool('wordcounter')">
+                    <div class="tool-icon"><i class="fa-solid fa-file-lines"></i></div>
+                    <h3>Word Counter</h3>
+                    <p>Count words, characters, and reading time in real-time.</p>
+                </div>
 
-            <a href="#" class="tool-card" data-name="discount shopping calculator">
-                <div class="tool-icon"><i class="fa-solid fa-tags"></i></div>
-                <h3>Discount Calculator</h3>
-                <p>Find out final prices and savings during sales.</p>
-            </a>
+                <div class="tool-card" data-name="password generator security" onclick="openTool('password')">
+                    <div class="tool-icon"><i class="fa-solid fa-key"></i></div>
+                    <h3>Password Generator</h3>
+                    <p>Generate secure, random passwords for your accounts.</p>
+                </div>
+            </div>
+        </div>
 
-            <a href="#" class="tool-card" data-name="loan emi finance calculator">
-                <div class="tool-icon"><i class="fa-solid fa-calculator"></i></div>
-                <h3>Loan / EMI Calculator</h3>
-                <p>Calculate your monthly loan payments and interest.</p>
-            </a>
-
-            <a href="#" class="tool-card" data-name="image compressor resizer">
-                <div class="tool-icon"><i class="fa-solid fa-image"></i></div>
-                <h3>Image Compressor</h3>
-                <p>Reduce image file size quickly without losing quality.</p>
-            </a>
-
-            <a href="#" class="tool-card" data-name="word counter text tool">
-                <div class="tool-icon"><i class="fa-solid fa-file-lines"></i></div>
-                <h3>Word Counter</h3>
-                <p>Count words, characters, and reading time in real-time.</p>
-            </a>
-
-            <a href="#" class="tool-card" data-name="qr code generator">
-                <div class="tool-icon"><i class="fa-solid fa-qrcode"></i></div>
-                <h3>QR Code Generator</h3>
-                <p>Create custom QR codes for links, text, and wifi.</p>
-            </a>
-
-            <a href="#" class="tool-card" data-name="password generator security">
-                <div class="tool-icon"><i class="fa-solid fa-key"></i></div>
-                <h3>Password Generator</h3>
-                <p>Generate secure, random passwords for your accounts.</p>
-            </a>
+        <!-- Tool Workspace Section -->
+        <div id="toolWorkspace">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Back to Tools</button>
+            <div id="toolContent"></div>
         </div>
     </div>
 
-    <!-- Ad Unit 2: Above Footer (Live Google AdSense) -->
+    <!-- Ad Unit 2 -->
     <div class="ad-container">
         <ins class="adsbygoogle"
              style="display:block"
@@ -354,9 +395,8 @@
         <p>&copy; 2026 ToolNova. All rights reserved. Free Tools for Everyone, Everywhere.</p>
     </footer>
 
-    <!-- JavaScript & Telegram Bot Integration Script -->
+    <!-- JavaScript & Tool Logic -->
     <script>
-        // Real-time tool search function
         function searchTools() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('tool-card');
@@ -369,6 +409,139 @@
                     cards[i].style.display = "none";
                 }
             }
+        }
+
+        function goHome() {
+            document.getElementById('toolWorkspace').style.display = "none";
+            document.getElementById('mainToolsView').style.display = "block";
+            document.getElementById('heroSection').style.display = "block";
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function openTool(toolName) {
+            document.getElementById('mainToolsView').style.display = "none";
+            document.getElementById('heroSection').style.display = "none";
+            let workspace = document.getElementById('toolWorkspace');
+            let content = document.getElementById('toolContent');
+            workspace.style.display = "block";
+            window.scrollTo({top: 0, behavior: 'smooth'});
+
+            if(toolName === 'age') {
+                content.innerHTML = `
+                    <h2><i class="fa-solid fa-cake-candles" style="color:var(--primary);"></i> Age Calculator</h2>
+                    <p style="color:var(--gray); margin-bottom:20px;">Select your birth date to calculate exact age.</p>
+                    <div class="tool-form-group">
+                        <label>Birth Date:</label>
+                        <input type="date" id="dob">
+                    </div>
+                    <button class="calc-btn" onclick="calculateAge()">Calculate Age</button>
+                    <div id="ageResult" class="result-box" style="display:none;"></div>
+                `;
+            } else if(toolName === 'percentage') {
+                content.innerHTML = `
+                    <h2><i class="fa-solid fa-percent" style="color:var(--primary);"></i> Percentage Calculator</h2>
+                    <p style="color:var(--gray); margin-bottom:20px;">Find the percentage of a given number.</p>
+                    <div class="tool-form-group">
+                        <label>What is</label>
+                        <input type="number" id="perc" placeholder="e.g., 20">
+                    </div>
+                    <div class="tool-form-group">
+                        <label>% of (Number):</label>
+                        <input type="number" id="total" placeholder="e.g., 500">
+                    </div>
+                    <button class="calc-btn" onclick="calculatePercentage()">Calculate</button>
+                    <div id="percResult" class="result-box" style="display:none;"></div>
+                `;
+            } else if(toolName === 'bmi') {
+                content.innerHTML = `
+                    <h2><i class="fa-solid fa-weight-scale" style="color:var(--primary);"></i> BMI Calculator</h2>
+                    <p style="color:var(--gray); margin-bottom:20px;">Calculate your Body Mass Index.</p>
+                    <div class="tool-form-group">
+                        <label>Weight (kg):</label>
+                        <input type="number" id="weight" placeholder="e.g., 65">
+                    </div>
+                    <div class="tool-form-group">
+                        <label>Height (cm):</label>
+                        <input type="number" id="height" placeholder="e.g., 170">
+                    </div>
+                    <button class="calc-btn" onclick="calculateBMI()">Calculate BMI</button>
+                    <div id="bmiResult" class="result-box" style="display:none;"></div>
+                `;
+            } else if(toolName === 'wordcounter') {
+                content.innerHTML = `
+                    <h2><i class="fa-solid fa-file-lines" style="color:var(--primary);"></i> Word Counter</h2>
+                    <p style="color:var(--gray); margin-bottom:20px;">Type or paste your text to count words and characters.</p>
+                    <div class="tool-form-group">
+                        <textarea id="textInput" rows="6" style="width:100%; padding:15px; border:1px solid var(--border); border-radius:10px; outline:none;" placeholder="Type here..." onkeyup="countWords()"></textarea>
+                    </div>
+                    <div id="wordResult" class="result-box">Words: 0 | Characters: 0</div>
+                `;
+            } else if(toolName === 'password') {
+                content.innerHTML = `
+                    <h2><i class="fa-solid fa-key" style="color:var(--primary);"></i> Password Generator</h2>
+                    <p style="color:var(--gray); margin-bottom:20px;">Generate a secure random password.</p>
+                    <button class="calc-btn" onclick="generatePassword()">Generate Password</button>
+                    <div id="passResult" class="result-box" style="display:none; word-break:break-all;"></div>
+                `;
+            }
+        }
+
+        function calculateAge() {
+            let dob = document.getElementById('dob').value;
+            if(!dob) return;
+            let birthDate = new Date(dob);
+            let today = new Date();
+            let years = today.getFullYear() - birthDate.getFullYear();
+            let months = today.getMonth() - birthDate.getMonth();
+            let days = today.getDate() - birthDate.getDate();
+            if (days < 0) { months--; days += 30; }
+            if (months < 0) { years--; months += 12; }
+            let res = document.getElementById('ageResult');
+            res.style.display = "block";
+            res.innerHTML = `Your Age: ${years} Years, ${months} Months, ${days} Days`;
+        }
+
+        function calculatePercentage() {
+            let p = parseFloat(document.getElementById('perc').value);
+            let t = parseFloat(document.getElementById('total').value);
+            if(isNaN(p) || isNaN(t)) return;
+            let ans = (p * t) / 100;
+            let res = document.getElementById('percResult');
+            res.style.display = "block";
+            res.innerHTML = `Result: ${ans}`;
+        }
+
+        function calculateBMI() {
+            let w = parseFloat(document.getElementById('weight').value);
+            let h = parseFloat(document.getElementById('height').value) / 100;
+            if(isNaN(w) || isNaN(h) || h === 0) return;
+            let bmi = (w / (h * h)).toFixed(2);
+            let status = "";
+            if(bmi < 18.5) status = "Underweight";
+            else if(bmi < 25) status = "Normal weight";
+            else if(bmi < 30) status = "Overweight";
+            else status = "Obese";
+            let res = document.getElementById('bmiResult');
+            res.style.display = "block";
+            res.innerHTML = `Your BMI is ${bmi} (${status})`;
+        }
+
+        function countWords() {
+            let text = document.getElementById('textInput').value.trim();
+            let words = text === "" ? 0 : text.split(/\s+/).length;
+            let chars = text.length;
+            document.getElementById('wordResult').innerHTML = `Words: ${words} | Characters: ${chars}`;
+        }
+
+        function generatePassword() {
+            let chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*";
+            let pass = "";
+            for (let i = 0; i < 12; i++) {
+                pass += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            let res = document.getElementById('passResult');
+            res.style.display = "block";
+            res.innerHTML = `Generated Password: <b>${pass}</b>`;
         }
 
         // --- Telegram 12-Hour Visitor Notification System ---
@@ -411,4 +584,4 @@
         };
     </script>
 </body>
-  </html>
+    </html>
